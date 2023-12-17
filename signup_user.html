@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Radio+Canada:ital,wght@0,400;1,300&display=swap');    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="box">
+        <img src="../pic/doggy.png" style="height: 432px; width: 586px" id="doggy">
+    </div>
+    <div class="signup">
+        <h1>Sign Up</h1>
+        <form action="" method="post">
+            <input type="text" name="userUsername" placeholder="Username" required id="input">
+            <input type="password" name="userPassword" placeholder="Password" required id="input">
+            <input type="text" name="userNama" placeholder="Nama" required id="input">
+            <input type="hidden" name="userJenis_user" value="user">
+            <button type="button" onclick="signup_user()" id="submit">Sign Up</button>
+        </form>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
