@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Radio+Canada:ital,wght@0,400;1,300&display=swap');
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Sign Up as Shelter</title>
+</head>
+<body>
+    <div class="box">
+        <img src="../pic/doggy.png" style="height: 432px; width: 586px" id="doggy">
+    </div>
+    <div class="signup_shelter">
+        <h1>Sign Up</h1>
+        <p>As Shelter</p>
+        <form onsubmit="signup_shelter(event);" id="signupForm" action="/signup_shelter" method="POST">
+            <input type="text" id="shelterUsername" placeholder="Username" required>
+            <input type="password" id="shelterPassword" placeholder="Password" required>
+            <input type="text" id="shelterNama" placeholder="Nama" required>
+            <input type="url" id="shelterAlamat" placeholder="Alamat (link maps)" required>
+            <input type="hidden" id="shelterJenis_user" value="shelter">
+            <button type="submit" id="submit">Sign Up</button>
+        </form>        
+    </div>
+    <script>
+        function signup_shelter(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            var form = document.getElementById('signupForm');
+            var formData = new FormData(form);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/signup_shelter', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Handle successful form submission
+                    console.log(xhr.responseText);
+                } else {
+                    // Handle form submission error
+                    console.error(xhr.responseText);
+                }
+            };
+
+            var encodedData = new URLSearchParams(formData).toString();
+            xhr.send(encodedData);
+        }
+
+    </script>
+</body>
+</html>
